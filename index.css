@@ -1,0 +1,39 @@
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background : green;
+}
+table{
+  background-color: rgb(244, 244, 244);
+  font-size: 30px;
+}
+td{
+ border: 1px solid black;
+ padding: 25px;
+ 
+}
+.\@{
+  background : red;
+}
+.\#{
+  background : black;
+}
+.\.{
+  background : green;
+  cursor: pointer;
+}
+.\.:first-child{
+  transition: 1s;
+  background : green;
+  animation: Exit 1s ease infinite;
+} 
+@keyframes Exit{
+  0%{
+    border: 1px solid red ;
+    box-shadow: 1px 1px 4px red;
+  }
+  50%{
+    border: 1px solid black ;
+  }
+}
