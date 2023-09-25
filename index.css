@@ -9,12 +9,12 @@ table{
   font-size: 30px;
 }
 td{
- border: 1px solid black;
  padding: 25px;
- 
 }
 .\@{
-  background : red;
+  background: url(human.png);
+  background-size: contain;
+
 }
 .\#{
   background : black;
@@ -30,10 +30,10 @@ td{
 } 
 @keyframes Exit{
   0%{
-    border: 1px solid red ;
+    border: 0px solid red ;
     box-shadow: 1px 1px 4px red;
   }
   50%{
-    border: 1px solid black ;
+    border: 0px solid black ;
   }
 }

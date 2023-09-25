@@ -1,20 +1,17 @@
-// const canvas = querySelector("canvas");
-// const context = canvas.getContext("2d");
-
-// var img = document.createElement("IMG");
-// img.src = "human.png";
 
 
 const labyrinth = [
-  ["#","#","#","#","#"],
-  [".",".",".",".","#"],
-  ["#","#",".","#","#"],
-  ["#",".",".",".","#"],
-  ["#",".","#","#","#"],
-  ["#",".",".","@","#"],
-  ["#","#","#","#","#"],
+  ["#", "#", "#", "#", "#"],
+  [".", ".", ".", ".", "#"],
+  ["#", "#", ".", "#", "#"],
+  ["#", ".", ".", ".", "#"],
+  ["#", ".", "#", "#", "#"],
+  ["#", ".", ".", "@", "#"],
+  ["#", "#", "#", "#", "#"],
 ];
 
+let horizon = 3;
+let vertical = 5;
 
 const createElement = (tagName, ...options) => {
   const element = document.createElement(tagName);
@@ -37,12 +34,83 @@ const createElement = (tagName, ...options) => {
 const drawMaze = () =>
   createElement(
     "table",
+    {id: "table"},
     labyrinth.map((x) =>
       createElement(
         "tr",
-        x.map((i) => createElement("td", {className : i },  i))
+        x.map((i) => createElement("td", { className: i }))
       )
     )
   );
 
-document.body.append(drawMaze());
+ 
+ let table = drawMaze();
+ document.body.append(table);
+ 
+
+ 
+
+const onKeyDown = (event) => {
+  console.log(event.code);
+  
+  if (event.code == "ArrowDown") {
+    
+        table.remove()
+        labyrinth[vertical][horizon] = '.';
+        labyrinth[vertical + 1][horizon] = '@';
+        vertical = vertical + 1;
+        console.log(labyrinth);
+
+         table = drawMaze();
+         document.body.append(table);
+        
+        win();
+
+  } else if (event.code == "ArrowRight") {
+   
+        table.remove()
+        labyrinth[vertical][horizon] = '.';
+        labyrinth[vertical][horizon + 1] = '@';
+        horizon = horizon + 1;
+        console.log(labyrinth);
+
+        table = drawMaze();
+        document.body.append(table);
+        
+        win();
+  } else if(event.code == "ArrowUp") {
+   
+        table.remove()
+        labyrinth[vertical][horizon] = '.';
+        labyrinth[vertical - 1][horizon] = '@';
+        vertical = vertical - 1;
+        console.log(labyrinth);
+       
+        table = drawMaze();
+        document.body.append(table);
+        win();
+
+  } else if(event.code == "ArrowLeft"){
+      
+      table.remove()
+      labyrinth[vertical][horizon] = '.';
+      labyrinth[vertical][horizon - 1] = '@';
+      horizon = horizon - 1;
+      console.log(labyrinth);
+     
+
+      table = drawMaze();
+      document.body.append(table);
+      win();
+  }
+};
+
+
+console.log(labyrinth[1][0])
+   
+
+function win () {
+  labyrinth[1][0] == "@" ? alert("WINNN") : false;
+}
+
+document.body.addEventListener("keydown", onKeyDown);
