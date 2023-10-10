@@ -10,8 +10,22 @@ const labyrinth = [
   ["#", "#", "#", "#", "#"],
 ];
 
-let horizon = 3;
-let vertical = 5;
+
+let horizon;
+let vertical;
+const people = () => {
+  for(let i = 0; i < labyrinth.length ; i++){
+    for(let j = 0; j < labyrinth[i].length ; j++ ){
+      if (labyrinth[i][j] == "@"){
+        vertical  = i ;
+        horizon= j
+      }
+    }
+  }
+}
+
+people();
+
 
 const createElement = (tagName, ...options) => {
   const element = document.createElement(tagName);
@@ -46,8 +60,6 @@ const drawMaze = () =>
  
  let table = drawMaze();
  document.body.append(table);
- 
-
  
 
 const onKeyDown = (event) => {
