@@ -1,0 +1,41 @@
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background : rgb(81, 90, 81);
+}
+table{
+  
+  font-size: 30px;
+}
+td{
+ padding: 25px;
+}
+.\@{
+  background-image: url(image/imgonline-com-ua-Mirror-NSaophKv0XvplTu4.png);
+  background-size: contain;
+  
+}
+.\#{
+  background-image: url(image/platformPack_tile008.png)
+ 
+}
+.\.{
+  
+  cursor: pointer;
+}
+.\.:first-child{
+  transition: 1s;
+ 
+  background-image : url(image/platformPack_item017.png)
+  
+} 
+@keyframes Exit{
+  0%{
+    border: 0px solid red ;
+    box-shadow: 1px 1px 4px red;
+  }
+  50%{
+    border: 0px solid black ;
+  }
+}

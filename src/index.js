@@ -78,6 +78,7 @@ const onKeyDown = (event) => {
     move(1, 0);
   } else if (event.code == "ArrowUp") {
     move(0, -1);
+    
   } else if (event.code == "ArrowLeft") {
     move(-1, 0);
   }
