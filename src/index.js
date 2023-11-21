@@ -19,6 +19,16 @@ const findPeople = (labyrinth) => {
   }
 };
 
+const findFinish = (labyrinth) => {
+  for (let i = 0; i < labyrinth.length; i++) {
+    for (let j = 0; j < labyrinth[i].length; j++) {
+      if (labyrinth[i][j] == "'") {
+        return [i, j]
+         
+      }
+    }
+  }
+};
 
 let [vertical, horizon] = findPeople(labyrinth);
 
@@ -60,6 +70,8 @@ const classNameTeg = (i) =>{
     return "human"
   case "'":
     return "finish"
+  case ".":
+    return "path"
   default:   
     return i
  }
