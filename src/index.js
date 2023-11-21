@@ -1,6 +1,6 @@
 const labyrinth = [
   ["#", "#", "#", "#", "#"],
-  [".", ".", ".", ".", "#"],
+  ["'", ".", ".", ".", "#"],
   ["#", "#", ".", "#", "#"],
   ["#", ".", ".", ".", "#"],
   ["#", ".", "#", "#", "#"],
@@ -12,11 +12,13 @@ const findPeople = (labyrinth) => {
   for (let i = 0; i < labyrinth.length; i++) {
     for (let j = 0; j < labyrinth[i].length; j++) {
       if (labyrinth[i][j] == "@") {
-        return [i, j];
+        return [i, j]
+         
       }
     }
   }
 };
+
 
 let [vertical, horizon] = findPeople(labyrinth);
 
@@ -38,6 +40,7 @@ const createElement = (tagName, ...options) => {
   return element;
 };
 
+
 const drawMaze = () =>
   createElement(
     "table",
@@ -45,10 +48,22 @@ const drawMaze = () =>
     labyrinth.map((x) =>
       createElement(
         "tr",
-        x.map((i) => createElement("td", { className: i }))
+        x.map((i) => createElement("td", { className: classNameTeg(i) }))
       )
     )
   );
+const classNameTeg = (i) =>{
+ switch(i){
+  case "#":
+    return "wall"
+  case "@":
+    return "human"
+  case "'":
+    return "finish"
+  default:   
+    return i
+ }
+}
 
 const move = (dx, dy) => {
   let nextY = vertical + dy;
@@ -91,3 +106,4 @@ function win() {
 }
 
 document.body.addEventListener("keydown", onKeyDown);
+
