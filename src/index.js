@@ -1,6 +1,6 @@
 const labyrinth = [
   ["#", "#", "#", "#", "#"],
-  ["'", ".", ".", ".", "#"],
+  ["*", ".", ".", ".", "#"],
   ["#", "#", ".", "#", "#"],
   ["#", ".", ".", ".", "#"],
   ["#", ".", "#", "#", "#"],
@@ -22,7 +22,7 @@ const findPeople = (labyrinth) => {
 const findFinish = (labyrinth) => {
   for (let i = 0; i < labyrinth.length; i++) {
     for (let j = 0; j < labyrinth[i].length; j++) {
-      if (labyrinth[i][j] == "'") {
+      if (labyrinth[i][j] == "*") {
         return [i, j]
          
       }
@@ -58,17 +58,17 @@ const drawMaze = () =>
     labyrinth.map((x) =>
       createElement(
         "tr",
-        x.map((i) => createElement("td", { className: classNameTeg(i) }))
+        x.map((i) => createElement("td", { className: getClassName(i) }))
       )
     )
   );
-const classNameTeg = (i) =>{
+const getClassName = (i) =>{
  switch(i){
   case "#":
     return "wall"
   case "@":
-    return "human"
-  case "'":
+    return "player"
+  case "*":
     return "finish"
   case ".":
     return "path"

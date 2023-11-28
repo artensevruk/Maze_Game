@@ -1,17 +1,18 @@
 body{
- position: absolute;
-  left: 40%;
-  top: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
   background : rgb(81, 90, 81);
 }
 
+table{
+  margin-top: 80px;
+}
+
 td{
  padding: 25px;
 }
-.human{
+.player{
   background-image: url(image/imgonline-com-ua-Mirror-NSaophKv0XvplTu4.png);
   background-size: contain;
   
