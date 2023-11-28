@@ -1,6 +1,6 @@
 const labyrinth = [
   ["#", "#", "#", "#", "#"],
-  [".", ".", ".", ".", "#"],
+  ["*", ".", ".", ".", "#"],
   ["#", "#", ".", "#", "#"],
   ["#", ".", ".", ".", "#"],
   ["#", ".", "#", "#", "#"],
@@ -12,7 +12,19 @@ const findPeople = (labyrinth) => {
   for (let i = 0; i < labyrinth.length; i++) {
     for (let j = 0; j < labyrinth[i].length; j++) {
       if (labyrinth[i][j] == "@") {
-        return [i, j];
+        return [i, j]
+         
+      }
+    }
+  }
+};
+
+const findFinish = (labyrinth) => {
+  for (let i = 0; i < labyrinth.length; i++) {
+    for (let j = 0; j < labyrinth[i].length; j++) {
+      if (labyrinth[i][j] == "*") {
+        return [i, j]
+         
       }
     }
   }
@@ -38,6 +50,7 @@ const createElement = (tagName, ...options) => {
   return element;
 };
 
+
 const drawMaze = () =>
   createElement(
     "table",
@@ -45,10 +58,24 @@ const drawMaze = () =>
     labyrinth.map((x) =>
       createElement(
         "tr",
-        x.map((i) => createElement("td", { className: i }))
+        x.map((i) => createElement("td", { className: getClassName(i) }))
       )
     )
   );
+const getClassName = (i) =>{
+ switch(i){
+  case "#":
+    return "wall"
+  case "@":
+    return "player"
+  case "*":
+    return "finish"
+  case ".":
+    return "path"
+  default:   
+    return i
+ }
+}
 
 const move = (dx, dy) => {
   let nextY = vertical + dy;
@@ -91,3 +118,4 @@ function win() {
 }
 
 document.body.addEventListener("keydown", onKeyDown);
+
