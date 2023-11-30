@@ -1,4 +1,4 @@
-import "../style.css"
+import "../style.css";
 
 const labyrinth = [
   ["#", "#", "#", "#", "#"],
@@ -14,8 +14,7 @@ const findPeople = (labyrinth) => {
   for (let i = 0; i < labyrinth.length; i++) {
     for (let j = 0; j < labyrinth[i].length; j++) {
       if (labyrinth[i][j] == "@") {
-        return [i, j]
-         
+        return [i, j];
       }
     }
   }
@@ -25,8 +24,7 @@ const findFinish = (labyrinth) => {
   for (let i = 0; i < labyrinth.length; i++) {
     for (let j = 0; j < labyrinth[i].length; j++) {
       if (labyrinth[i][j] == "*") {
-        return [i, j]
-         
+        return [i, j];
       }
     }
   }
@@ -52,7 +50,6 @@ const createElement = (tagName, ...options) => {
   return element;
 };
 
-
 const drawMaze = () =>
   createElement(
     "table",
@@ -64,20 +61,20 @@ const drawMaze = () =>
       )
     )
   );
-const getClassName = (i) =>{
- switch(i){
-  case "#":
-    return "wall"
-  case "@":
-    return "player"
-  case "*":
-    return "finish"
-  case ".":
-    return "path"
-  default:   
-    return i
- }
-}
+const getClassName = (i) => {
+  switch (i) {
+    case "#":
+      return "wall";
+    case "@":
+      return "player";
+    case "*":
+      return "finish";
+    case ".":
+      return "path";
+    default:
+      return i;
+  }
+};
 
 const move = (dx, dy) => {
   let nextY = vertical + dy;
@@ -107,7 +104,6 @@ const onKeyDown = (event) => {
     move(1, 0);
   } else if (event.code == "ArrowUp") {
     move(0, -1);
-    
   } else if (event.code == "ArrowLeft") {
     move(-1, 0);
   }
@@ -120,4 +116,3 @@ function win() {
 }
 
 document.body.addEventListener("keydown", onKeyDown);
-
