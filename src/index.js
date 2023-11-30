@@ -13,17 +13,15 @@ const labyrinth = [
 const findPosition = (labyrinth, token) => {
   for (let i = 0; i < labyrinth.length; i++) {
     const j = labyrinth[i].indexOf(token);
-    if (j > - 1) {
-      return [ i, j ];
+    if (j > -1) {
+      return [i, j];
     }
   }
 };
 
-const findPeople = labyrinth => findPosition(labyrinth, '@');
+const findPeople = (labyrinth) => findPosition(labyrinth, "@");
 
-const findFinish = labyrinth => findPosition(labyrinth, '*');
-
-
+const findFinish = (labyrinth) => findPosition(labyrinth, "*");
 
 const [verticalFinish, horizonFinish] = findFinish(labyrinth);
 let [vertical, horizon] = findPeople(labyrinth);
@@ -104,7 +102,6 @@ const onKeyDown = (event) => {
     move(-1, 0);
   }
 };
-
 
 function win() {
   if (labyrinth[verticalFinish][horizonFinish] == "@") alert("WINNN");
