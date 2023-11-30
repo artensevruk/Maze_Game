@@ -13,26 +13,18 @@ td{
  padding: 25px;
 }
 .player{
-  background-image: url(image/imgonline-com-ua-Mirror-NSaophKv0XvplTu4.png);
+  background-image: url(image/player.png);
   background-size: contain;
   
 }
 .wall{
-  background-image: url(image/platformPack_tile008.png)
+  background-image: url(image/wall.png)
  
 }
 
 .finish{
   transition: 1s;
-  background-image : url(image/platformPack_item017.png)
+  background-image : url(image/finish.png)
   
 } 
-@keyframes Exit{
-  0%{
-    border: 0px solid red ;
-    box-shadow: 1px 1px 4px red;
-  }
-  50%{
-    border: 0px solid black ;
-  }
-}
+
