@@ -1,30 +1,25 @@
-body{
+body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background : rgb(81, 90, 81);
+  background: rgb(81, 90, 81);
 }
-
-table{
+table {
   margin-top: 80px;
 }
 
-td{
- padding: 25px;
+td {
+  padding: 25px;
 }
-.player{
+.player {
   background-image: url(image/player.png);
   background-size: contain;
-  
 }
-.wall{
-  background-image: url(image/wall.png)
- 
+.wall {
+  background-image: url(image/wall.png);
 }
 
-.finish{
+.finish {
   transition: 1s;
-  background-image : url(image/finish.png)
-  
-} 
-
+  background-image: url(image/finish.png);
+}
