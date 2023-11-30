@@ -10,26 +10,22 @@ const labyrinth = [
   ["#", "#", "#", "#", "#"],
 ];
 
-const findPeople = (labyrinth) => {
+const findPosition = (labyrinth, token) => {
   for (let i = 0; i < labyrinth.length; i++) {
-    for (let j = 0; j < labyrinth[i].length; j++) {
-      if (labyrinth[i][j] == "@") {
-        return [i, j];
-      }
+    const j = labyrinth[i].indexOf(token);
+    if (j > - 1) {
+      return [ i, j ];
     }
   }
 };
 
-const findFinish = (labyrinth) => {
-  for (let i = 0; i < labyrinth.length; i++) {
-    for (let j = 0; j < labyrinth[i].length; j++) {
-      if (labyrinth[i][j] == "*") {
-        return [i, j];
-      }
-    }
-  }
-};
+const findPeople = labyrinth => findPosition(labyrinth, '@');
 
+const findFinish = labyrinth => findPosition(labyrinth, '*');
+
+
+
+const [verticalFinish, horizonFinish] = findFinish(labyrinth);
 let [vertical, horizon] = findPeople(labyrinth);
 
 const createElement = (tagName, ...options) => {
@@ -109,10 +105,9 @@ const onKeyDown = (event) => {
   }
 };
 
-console.log(labyrinth[1][0]);
 
 function win() {
-  if (labyrinth[1][0] == "@") alert("WINNN");
+  if (labyrinth[verticalFinish][horizonFinish] == "@") alert("WINNN");
 }
 
 document.body.addEventListener("keydown", onKeyDown);
